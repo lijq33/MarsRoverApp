@@ -16,14 +16,12 @@ This is a simple springboot application that allows you to deploy and command yo
 f,f,r,b,l,f
 
 ### Commands:
-1. **f** - Moves the rover forward
-2. **b** - Moves the rover backward
-3. **l** - Turns the rover left
-4. **r** - Turns the rover right
+f – Move forward 1 coordinate in the current direction
+b – Move backward 1 coordinate in the current direction
+r – Rotate 90 degree clock-wise from current direction
+l – Rotate 90 degree anti clock-wise from current direction
 
 ## How to use this application
 1. Start spring boot application by running `MarsRoverApplication.java`
-2. Follow the prompt that shows up.
-3. deploy rover (1)
-4. display rover (2)
-5. navigate rover (3)
+2. Enter accordingly to the prompt
+
