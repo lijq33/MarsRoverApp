@@ -14,7 +14,7 @@ public class MarsRoverService {
     public final int[][] mars = new int[99][99];
     private Map<String, MarsRover> marsRovers = new HashMap<>();
 
-    private final Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     public MarsRover deployRover() throws Exception {
         System.out.println("Please enter id of Mars Rover: ");
@@ -44,7 +44,7 @@ public class MarsRoverService {
 
         MarsRover newMarsRover = new MarsRover(id, xCoordinate, yCoordinate, direction);
         marsRovers.put(id, newMarsRover);
-        mars[xCoordinate][yCoordinate] = 1;
+        markCoordinateOccupied(xCoordinate, yCoordinate);
 
         return newMarsRover;
     }
@@ -93,15 +93,18 @@ public class MarsRoverService {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         } finally {
-            mars[rover.getXCoordinate()][rover.getYCoordinate()] = 1;
-
+            markCoordinateOccupied(rover.getXCoordinate(), rover.getYCoordinate());
             System.out.println("Mars rover ID:" + rover.getId());
             System.out.println("Mars rover direction " + rover.getDirection());
             System.out.println("Mars rover x coordinates " + rover.getXCoordinate());
             System.out.println("Mars rover y coordinates " + rover.getYCoordinate());
         }
+    }
+
+    public void markCoordinateOccupied(int xCoordinate, int yCoordinate) {
+        mars[xCoordinate][yCoordinate] = 1;
     }
 
 }
